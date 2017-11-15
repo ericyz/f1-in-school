@@ -1,24 +1,5 @@
 {
   "name": "f1-in-school",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ericyz/f1-in-school.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ericyz/f1-in-school/issues"
-  },
-  "homepage": "https://github.com/ericyz/f1-in-school#readme"
-}
-{
-  "name": "f1-in-school",
   "description": "",
   "author": "",
   "license": "MIT",
