@@ -98,7 +98,8 @@ export default class App extends Component {
           <Menu styles={menuStyles} isOpen={this.menuOpen}>
             <IndexLink to="/" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }} >
               <div className="menu-item" />
-            </IndexLink>
+              <span >Home</span>
+              </IndexLink>
             <IndexLink to="/leaderboard" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
               <div className="menu-item" />
               <span >Leader Board</span>
