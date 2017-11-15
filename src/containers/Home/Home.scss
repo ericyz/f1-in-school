@@ -1,9 +1,37 @@
 @import "../../theme/variables.scss";
 
+.formContainer  {
+  float: none;
+  margin: 0 auto;
+  width: 75%;
+}
+
 .home {
-  dd {
-    margin-bottom: 15px;
-  }
+
+    p {
+      text-align: center;
+
+      img {
+        max-width: 380px;
+      }
+    }    
+    
+    form {
+      text-align: center;
+      
+      input {
+        margin-bottom: .5em;
+      }
+
+      button[type="submit"] {
+        border-radius: .5em;
+        padding: .5em 5em;
+      }
+
+      button[type="submit"]:disabled {
+          background: #dddddd;
+      }
+    }
 }
 .masthead {
   background: #2d2d2d;
