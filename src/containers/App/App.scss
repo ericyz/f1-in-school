@@ -1,4 +1,5 @@
 .app {
+
   .brand {
     position: absolute;
     $size: 40px;
@@ -16,7 +17,4 @@
     font-size: 2em;
     line-height: 20px;
   }
-}
-.appContent {
-  margin: 50px 0; // for fixed navbar
 }
