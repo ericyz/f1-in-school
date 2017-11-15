@@ -1,24 +1,5 @@
 {
   "name": "f1-in-school",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ericyz/f1-in-school.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ericyz/f1-in-school/issues"
-  },
-  "homepage": "https://github.com/ericyz/f1-in-school#readme"
-}
-{
-  "name": "f1-in-school",
   "description": "",
   "author": "",
   "license": "MIT",
@@ -66,7 +47,6 @@
       "env": {
         "NODE_PATH": "./src",
         "NODE_ENV": "production",
-        //"PORT": 8080,
         "APIPORT": 3030
       }
     },
@@ -142,6 +122,7 @@
     "pretty-error": "^1.2.0",
     "react": "0.14.8",
     "react-bootstrap": "^0.28.1",
+    "react-burger-menu": "^2.1.11",
     "react-dom": "0.14.8",
     "react-helmet": "^2.2.0",
     "react-inline-css": "^2.0.0",
@@ -151,6 +132,7 @@
     "react-router-redux": "^4.0.0",
     "redux": "^3.0.4",
     "redux-async-connect": "^1.0.0-rc2",
+    "redux-burger-menu": "^0.2.2",
     "redux-form": "^3.0.12",
     "redux-thunk": "^2.1.0",
     "scroll-behavior": "^0.3.2",
