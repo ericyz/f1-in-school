@@ -23,6 +23,14 @@ export default class Listings extends Component {
       });
   }
 
+  handleRefreshClick() {
+    console.log('REFRESHING')
+    getRacesProxy().then(data=>{
+      console.log(data)
+      self.setState(prevState => Object.assign(prevState, {data: data}))
+    });
+  }
+
   getValidationState() {
     const length = this.state.value.length;
     if (length > 10) return 'success';
@@ -48,6 +56,7 @@ export default class Listings extends Component {
 
 <div className={`${styles.resultsContainer} container`} >
     <h2 className={styles.header}>Races</h2>
+    <button className={styles.refreshButton} onClick={this.handleRefreshClick.bind(this)}>Refresh</button>
       <ReactTable
         data={this.state.data}
         filterable
@@ -62,21 +71,7 @@ export default class Listings extends Component {
               {
                 Header: 'State',
                 accessor: 'state',
-                Filter: ({ filter, onChange }) =>
-                <select
-                  onChange={event => onChange(event.target.value)}
-                  style={{ width: "100%" }}
-                  value={filter ? filter.value : "any"}
-                >
-                  <option value="any">Any</option>
-                  <option value="VIC">VIC</option>
-                  <option value="ACT">ACT</option>
-                  <option value="NSW">NSW</option>
-                  <option value="WA">WA</option>
-                  <option value="NT">NT</option>
-                  <option value="SA">SA</option>
-                  
-                </select>
+                Filter: ({ filter, onChange }) => <div></div>
               },
 
               {
@@ -104,26 +99,57 @@ export default class Listings extends Component {
              },
               {
                 Header: 'Team 1',
-                accessor: d => d.team1Result.team,
+                accessor: d => typeof d.team1Result === 'null' ? '' : d.team1Result.team,
                 id: 'team1',
                 Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
                 filterMethod: (filter, rows) => {
                   var bool = matchSorter(rows, filter.value, { keys: ["team1"] })
                   return bool
                 },
-                filterAll: true                                     
+                filterAll: true,
+                sortMethod: (a, b) => {
+                  return parseFloat(a) > parseFloat(b) ? 1 : -1;
+                }                                    
               },
               {
-                Header: 'Team 2',
-                accessor: d => d.team1Result.team,
-                id: 'team2',                
-                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
+                Header: 'T1 Time',
+                accessor: d => d.team1Result.raceTime,
+                id: 'team1RaceTime',
+                Filter: ({ filter, onChange }) => <div></div>,
                 filterMethod: (filter, rows) => {
-                  return matchSorter(rows, filter.value, { keys: ["team2"] })
+                  var bool = matchSorter(rows, filter.value, { keys: ["team1RaceTime"] })
+                  return bool
                 },
-                filterAll: true              
+                filterAll: true                                     
               }
+              // {
+              //   Header: 'Team 2',
+              //   accessor: d => typeof d.team2Result === 'null' ? '' : d.team2Result.team,
+              //   id: 'team2',                
+              //   Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
+              //   filterMethod: (filter, rows) => {
+              //     return matchSorter(rows, filter.value, { keys: ["team2"] })
+              //   },
+              //   filterAll: true              
+              // }
+              // {
+              //   Header: 'T1 Time',
+              //   accessor: d => d.team1Result.raceTime,
+              //   id: 'team1RaceTime',
+              //   Filter: ({ filter, onChange }) => <div></div>,
+              //   filterMethod: (filter, rows) => {
+              //     var bool = matchSorter(rows, filter.value, { keys: ["team1RaceTime"] })
+              //     return bool
+              //   },
+              //   filterAll: true                                     
+              // }
  
+        ]}
+        defaultSorted={[
+          {
+            id: "date",
+            desc: true
+          }
         ]}
         defaultPageSize={10}
         className={`-striped -highlight ${styles['bg-wht']}`}

@@ -81,6 +81,7 @@
 }
 
 .header {
+  display: inline-block;
   font-family: "bebas_neuebold";
   font-weight: 700;
   font-style: normal;
@@ -88,4 +89,21 @@
   font-size: 42px;
   -webkit-transform: skew(-20deg);
   transform: skew(-20deg);
+}
+
+.refreshButton {
+  background: transparent;
+  display: inline-block;
+  float: right;
+  color: #DE2B16;
+  border: none;
+  border-radius: .5em;
+  font-family: "BebasNeue", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1.5em;
+  font-style: normal;
+  margin-top: .75em;
+  padding: .4em 1em;
+  text-transform: uppercase;
+  text-decoration: underline;
 }

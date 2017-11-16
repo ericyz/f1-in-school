@@ -147,7 +147,7 @@ export default class App extends Component {
 
           <span className={styles.carsalesContainer}>
             Powered by
-            <img className={styles.footerCSLogo} src="/logo-carsales.svg" alt="powered by carsales"/>
+            <img className={styles.footerCSLogo} src="/logo-carsales--white.svg" alt="powered by carsales"/>
           </span>
         </div>
       </div>
