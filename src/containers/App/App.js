@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Menu from './../Menu/Menu';
 import { IndexLink } from 'react-router';
+import Flexbox from 'flexbox-react';
+import 'semantic-ui-css/semantic.min.css';
+import './App.scss';
 // import { slide as Menu } from 'react-burger-menu';
 // import { connect } from 'react-redux';
 // import { IndexLink } from 'react-router';
@@ -69,6 +72,10 @@ const menuItemStyle = {
   fontSize: '1.15em'
 };
 
+const contentStyle = {
+  height: '100%'
+};
+
 export default class App extends Component {
 
 
@@ -99,7 +106,7 @@ export default class App extends Component {
             <IndexLink to="/" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }} >
               <div className="menu-item" />
               <span >Home</span>
-              </IndexLink>
+            </IndexLink>
             <IndexLink to="/leaderboard" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
               <div className="menu-item" />
               <span >Leader Board</span>
@@ -110,8 +117,10 @@ export default class App extends Component {
             </IndexLink>
           </Menu>
         </div>
-        <div>
-          {this.props.children}
+        <div style={contentStyle}>
+          <Flexbox element="div" flexDirection="column" height="100%" width="100%">
+            {this.props.children}
+          </Flexbox>
         </div>
         <div className="well text-center">
           Have questions? Ask for help <a
