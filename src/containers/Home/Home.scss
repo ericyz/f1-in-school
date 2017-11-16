@@ -1,5 +1,9 @@
 @import "../../theme/variables.scss";
 
+.container {
+  padding: 7em 0 0 0;
+}
+
 .formContainer  {
   float: none;
   margin: 0 auto;
@@ -20,7 +24,12 @@
       text-align: center;
       
       input {
+        border: 1px solid #ccc;
+        border-radius: .25em;
+        display: inline-block;
+        padding: 1em .5em;
         margin-bottom: .5em;
+        width: 50%;
       }
 
       button[type="submit"] {
