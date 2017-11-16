@@ -1,5 +1,6 @@
 
 import Flexbox from 'flexbox-react';
+import React from 'react';
 
 const headerSectionStyle = {
     width: "100%",
