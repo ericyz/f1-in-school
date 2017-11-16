@@ -132,16 +132,23 @@ export default class App extends Component {
           </div>
         </div>
 
-        <div className={styles.footerSocialIcons}>
-          <a
-            href="https://twitter.com/f1inschoolshq"
-            target="_blank">Twitter</a>
-          <a
-            href="https://www.facebook.com/F1inSchoolsHQ/"
-            target="_blank">Facebook</a>
-          <a
-            href="https://www.youtube.com/user/F1inSchoolsUK"
-            target="_blank">YouTube</a>
+        <div className={styles.footerContainer}>
+          <span className={styles.footerSocialIcons}>
+            <a
+              href="https://twitter.com/f1inschoolshq"
+              target="_blank">Twitter</a>
+            <a
+              href="https://www.facebook.com/F1inSchoolsHQ/"
+              target="_blank">Facebook</a>
+            <a
+              href="https://www.youtube.com/user/F1inSchoolsUK"
+              target="_blank">YouTube</a>
+          </span>
+
+          <span className={styles.carsalesContainer}>
+            Powered by
+            <img className={styles.footerCSLogo} src="/logo-carsales.svg" alt="powered by carsales"/>
+          </span>
         </div>
       </div>
 
