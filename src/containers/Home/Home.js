@@ -32,7 +32,6 @@ export default class Home extends Component {
 
   render() {
     const styles = require('./Home.scss');
-    const homeLogoImage = require('./f1is-black.svg');
     return (
       <div className={styles.home}>
         <Helmet title="Home"/>
@@ -40,10 +39,8 @@ export default class Home extends Component {
         <div className={styles.container}>
 
           <div className={styles.formContainer}>
-            <p>
-              <img src={homeLogoImage}/>
-            </p>
 
+            <h3>Search by team name</h3>
             <form onSubmit={this.onFormSubmit.bind(this)}>
               <input type="text" placeholder="Enter team name" onChange={this.updateSearchInputValue.bind(this)} />
               <div>

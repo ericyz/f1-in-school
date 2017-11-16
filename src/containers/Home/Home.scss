@@ -12,6 +12,15 @@
 
 .home {
 
+  h3 {
+    color: #DE2B16;
+    font-family: "bebas_neuebold", Arial, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
     p {
       text-align: center;
 
@@ -33,12 +42,20 @@
       }
 
       button[type="submit"] {
+        background-color: #DE2B16;
+        border: none;
         border-radius: .5em;
-        padding: .5em 5em;
+        color: #fff;
+        font-family: "bebas_neuebold", Arial, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+        padding: 1em 5em;
+        text-transform: uppercase;
       }
 
       button[type="submit"]:disabled {
-          background: #dddddd;
+        border: 1px solid #DE2B16;
+        background-color: #57575a;
       }
     }
 }
