@@ -122,11 +122,17 @@ export default class App extends Component {
             {this.props.children}
           </Flexbox>
         </div>
-        <div className="well text-center">
-          Have questions? Ask for help <a
-            href="https://github.com/erikras/react-redux-universal-hot-example/issues"
-            target="_blank">on Github</a> or in the <a
-              href="https://discord.gg/0ZcbPKXt5bZZb1Ko" target="_blank">#react-redux-universal</a> Discord channel.
+
+        <div className={styles.footerSocialIcons}>
+          <a
+            href="https://twitter.com/f1inschoolshq"
+            target="_blank">Twitter</a>
+          <a
+            href="https://www.facebook.com/F1inSchoolsHQ/"
+            target="_blank">Facebook</a>
+          <a
+            href="https://www.youtube.com/user/F1inSchoolsUK"
+            target="_blank">YouTube</a>
         </div>
       </div>
     );

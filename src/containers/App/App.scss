@@ -8,6 +8,20 @@ html,body{
   padding: 0;
 }
 
+.footerSocialIcons {
+  border-top: #c3c1c1;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #dadada;
+  padding: 1.5em 1em;
+  text-align: center;
+  a {
+    color: #333;
+    padding: .5em;
+  }
+}
+
 .app {
   // height:100%;
   width:100%;
