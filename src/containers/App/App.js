@@ -35,17 +35,18 @@ const menuStyles = {
     width: '36px',
     height: '30px',
     left: '36px',
-    top: '36px'
+    top: '50px'
   },
   bmBurgerBars: {
-    background: '#373a47'
+    background: '#FFF',
+    'border-radius': '4px'
   },
   bmCrossButton: {
     height: '24px',
     width: '24px'
   },
   bmCross: {
-    background: '#bdc3c7'
+    background: '#FFF'
   },
   bmMenu: {
     background: '#373a47',
@@ -102,34 +103,35 @@ export default class App extends Component {
     const styles = require('./App.scss');
 
     return (
-              <div className={styles.content}>
-
-      <div className={styles.app} >
-                <Helmet {...config.app.head}/>
-
-        <div id="outer-container" >
-          <Menu styles={menuStyles} isOpen={this.menuOpen}>
-            <IndexLink to="/" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }} >
-              <div className="menu-item" />
-              <span >Home</span>
-            </IndexLink>
-            <IndexLink to="/leaderboard" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
-              <div className="menu-item" />
-              <span >Leader Board</span>
-            </IndexLink>
-            <IndexLink to="/about" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
-              <div className="menu-item" />
-              <span >About</span>
-            </IndexLink>
-          </Menu>
-        </div>
-        <div style={contentStyle}>
-          <Flexbox element="div" flexDirection="column" height="100%" width="100%">
-            {this.props.children}
-          </Flexbox>
+      <div className={styles.content}>
+        <div className={styles.app} >
+          <Helmet {...config.app.head}/>
+          <div id="outer-container" >
+            <Menu styles={menuStyles} isOpen={this.menuOpen}>
+              <IndexLink to="/" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }} >
+                <div className="menu-item" />
+                <span >Home</span>
+              </IndexLink>
+              <IndexLink to="/leaderboard" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
+                <div className="menu-item" />
+                <span >Leader Board</span>
+              </IndexLink>
+              <IndexLink to="/about" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
+                <div className="menu-item" />
+                <span >About</span>
+              </IndexLink>
+            </Menu>
+          </div>
+          <div style={contentStyle}>
+          <div className={`${styles.header}`}>
+            <img className={styles.logo} src="/f1is-white.svg" alt="f1 in schools logo"/>
+          </div>
+            <Flexbox element="div" flexDirection="column" height="100%" width="100%">
+              {this.props.children}
+            </Flexbox>
+          </div>
         </div>
       </div>
-            </div>
 
     );
   }

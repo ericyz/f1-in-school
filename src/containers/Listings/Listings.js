@@ -3,7 +3,7 @@ import ReactTable from 'react-table';
 import Helmet from 'react-helmet';
 import matchSorter from 'match-sorter'
 
-export default class Home extends Component {
+export default class Listings extends Component {
 
   constructor(props) {
     super(props)
@@ -36,8 +36,8 @@ export default class Home extends Component {
       <div>
 
 
-<div className={`${styles['bg-wht']} ${styles.resultsContainer}`} >
-    <h2>Results</h2>
+<div className={`${styles.resultsContainer} container`} >
+    <h2 className={styles.header}>Races</h2>
     
       <ReactTable
         data={data}
@@ -117,7 +117,7 @@ export default class Home extends Component {
  
         ]}
         defaultPageSize={10}
-        className={`-striped -highlight`}
+        className={`-striped -highlight ${styles['bg-wht']}`}
         getTdProps={(state, rowInfo, column, instance) => {
             return {
               onClick: (e, handleOriginal) => {
