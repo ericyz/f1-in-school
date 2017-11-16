@@ -19,6 +19,12 @@ module.exports = Object.assign({
     description: 'All the modern best practices in one example.',
     head: {
       titleTemplate: 'React Redux Example: %s',
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://unpkg.com/react-table@latest/react-table.css'
+        }
+      ],
       meta: [
         {name: 'description', content: 'All the modern best practices in one example.'},
         {charset: 'utf-8'},

@@ -48,3 +48,11 @@ input[type=text][disabled],input[type=date][disabled],input[type=password][disab
 .pagination li.disabled{padding:.5rem;color:rgba(0,0,0,0.54)}@media(min-width:500px){.pagination li.disabled{padding:.85rem}}@media(min-width:900px){.pagination li.disabled{padding:1rem}}.pagination li.disabled:active{border-top:1px solid #eee;border-left:1px solid #eee;border-bottom:1px solid #ddd;border-right:1px solid #ddd}
 .pagination li.skip,.pagination li.current{padding:.5rem;border:0;margin:0}@media(min-width:500px){.pagination li.skip,.pagination li.current{padding:.85rem}}@media(min-width:900px){.pagination li.skip,.pagination li.current{padding:1rem}
 }.pagination li a{display:block;padding:.5rem;cursor:pointer;border:0}@media(min-width:500px){.pagination li a{padding:.85rem}}@media(min-width:900px){.pagination li a{padding:1rem}}
+
+
+
+.body {
+    background-image: url('../App/bg-1.jpg');
+    background-size: cover;
+    background-position: center;    
+  }

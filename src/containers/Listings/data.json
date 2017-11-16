@@ -1,0 +1,134 @@
+[
+    {
+        "raceId" : "WIKLdmRkTctuHHLhwhBG",
+        "city" : "Australia",
+        "country" : "Victoria",
+        "state" : "Melbourne",
+        "date" : "2017 - 11 - 14T13 : 00 : 00.000Z",
+        "venue" : "Carsales",
+        "team1" : {
+            "team" : "carsales",
+            "race_time" : 3.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 3.22
+        },
+        "team2" : {
+            "team" : "hyperdrive",
+            "race_time" : 1.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 1.22
+        }
+    },
+    {
+        "raceId" : "WIKLdmRkTctuHHLhwhBG",
+        "city" : "Australia",
+        "country" : "Victoria",
+        "state" : "Melbourne",
+        "date" : "2017 - 11 - 14T13 : 00 : 00.000Z",
+        "venue" : "Carsales",
+        "team1" : {
+            "team" : "carsales",
+            "race_time" : 3.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 3.22
+        },
+        "team2" : {
+            "team" : "hyperdrive",
+            "race_time" : 1.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 1.22
+        }
+    },
+    {
+        "raceId" : "WIKLdmRkTctuHHLhwhBG",
+        "city" : "Australia",
+        "country" : "Victoria",
+        "state" : "Melbourne",
+        "date" : "2017 - 11 - 14T13 : 00 : 00.000Z",
+        "venue" : "Carsales",
+        "team1" : {
+            "team" : "carsales",
+            "race_time" : 3.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 3.22
+        },
+        "team2" : {
+            "team" : "hyperdrive",
+            "race_time" : 1.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 1.22
+        }
+    },
+    {
+        "raceId" : "WIKLdmRkTctuHHLhwhBG",
+        "city" : "Australia",
+        "country" : "Victoria",
+        "state" : "Melbourne",
+        "date" : "2017 - 11 - 14T13 : 00 : 00.000Z",
+        "venue" : "Carsales",
+        "team1" : {
+            "team" : "bmw",
+            "race_time" : 3.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 3.22
+        },
+        "team2" : {
+            "team" : "benz",
+            "race_time" : 1.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 1.22
+        }
+    },
+    {
+        "raceId" : "WIKLdmRkTctuHHLhwhBG",
+        "city" : "Australia",
+        "country" : "Victoria",
+        "state" : "Melbourne",
+        "date" : "2017 - 11 - 14T13 : 00 : 00.000Z",
+        "venue" : "Carsales",
+        "team1" : {
+            "team" : "ferrrari",
+            "race_time" : 3.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 3.22
+        },
+        "team2" : {
+            "team" : "jim bobs",
+            "race_time" : 1.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 1.22
+        }
+    },
+    {
+        "raceId" : "WIKLdmRkTctuHHLhwhBG",
+        "city" : "Australia",
+        "country" : "Victoria",
+        "state" : "Melbourne",
+        "date" : "2017 - 11 - 14T13 : 00 : 00.000Z",
+        "venue" : "Carsales",
+        "team1" : {
+            "team" : "carsales",
+            "race_time" : 3.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 3.22
+        },
+        "team2" : {
+            "team" : "hyperdrive",
+            "race_time" : 1.22,
+            "reaction_time" : 0,
+            "split_time" : 0,
+            "combined_time" : 1.22
+        }
+    }
+]

@@ -1,46 +1,9 @@
 @import "../../theme/variables.scss";
 
-.container {
-  padding: 7em 0 0 0;
-}
-
-.formContainer  {
-  float: none;
-  margin: 0 auto;
-  width: 75%;
-}
-
 .home {
-
-    p {
-      text-align: center;
-
-      img {
-        max-width: 380px;
-      }
-    }    
-    
-    form {
-      text-align: center;
-      
-      input {
-        border: 1px solid #ccc;
-        border-radius: .25em;
-        display: inline-block;
-        padding: 1em .5em;
-        margin-bottom: .5em;
-        width: 50%;
-      }
-
-      button[type="submit"] {
-        border-radius: .5em;
-        padding: .5em 5em;
-      }
-
-      button[type="submit"]:disabled {
-          background: #dddddd;
-      }
-    }
+  dd {
+    margin-bottom: 15px;
+  }
 }
 .masthead {
   background: #2d2d2d;
@@ -94,4 +57,30 @@
 .counterContainer {
   text-align: center;
   margin: 20px;
+}
+
+.bg-wht {
+  background-color: #FFFFFF;
+}
+
+.listings {
+
+  margin: 40px;
+}
+
+.resultsContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  font-family: "bebas_neuebold", Arial, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: #fff;
+  font-size: 42px;
+  -webkit-transform: skew(-20deg);
+  transform: skew(-20deg);
 }

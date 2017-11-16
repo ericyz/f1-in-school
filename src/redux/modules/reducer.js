@@ -3,7 +3,7 @@ import multireducer from 'multireducer';
 import { routerReducer } from 'react-router-redux';
 import {reducer as reduxAsyncConnect} from 'redux-async-connect';
 import { pagination } from 'violet-paginator';
-
+import {reducer as burgerMenu} from 'redux-burger-menu';
 import auth from './auth';
 import counter from './counter';
 import {reducer as form} from 'redux-form';
@@ -22,5 +22,6 @@ export default combineReducers({
   }),
   info,
   pagination,
-  widgets
+  widgets,
+  burgerMenu
 });
