@@ -14,22 +14,16 @@ const contentStyle = {
   marginRight: "68px",
 }
 
-const TopList = () => (
+const TopList = (props) => (
   <div>
     <Item.Group style={itemGroupStyle} split>
-      <Item>
-        <Item.Image size='tiny' src='https://github.com/Semantic-Org/Semantic-UI-React/raw/master/docs/app/logo.png' style={imageStyle} />
+      {props.results.map(result => (<Item>
+        <Item.Image size='tiny' style={imageStyle}>{result.netlapTime}</Item.Image>
         <Item.Content verticalAlign='middle' >
-          <span style={contentStyle}>data 1</span><span style={contentStyle}>data2</span><span style={contentStyle}>data3</span>
+          <span style={contentStyle}>{result.reactionTime}</span><span style={contentStyle}>{result.grossLapTime}</span><span style={contentStyle}>{result.team}</span>
         </Item.Content>
-      </Item>
-
-      <Item>
-        <Item.Image size='tiny' src='https://github.com/Semantic-Org/Semantic-UI-React/raw/master/docs/app/logo.png' style={imageStyle} />
-        <Item.Content verticalAlign='middle' >
-          <span style={contentStyle}>data 1</span><span style={contentStyle}>data2</span><span style={contentStyle}>data3</span>
-        </Item.Content>
-      </Item>
+      </Item>)
+      )}
     </Item.Group>
   </div>
 )
