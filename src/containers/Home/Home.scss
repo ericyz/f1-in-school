@@ -1,5 +1,11 @@
 @import "../../theme/variables.scss";
 
+@font-face {
+  font-family: 'BebasNeue';
+  src: url('../../../static/fonts/bebasneue_bold-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../../../static/fonts/bebasneue_bold-webfont.woff') format('woff'); /* Pretty Modern Browsers */
+}
+
 .container {
   padding: 7em 0 0 0;
 }
@@ -11,6 +17,16 @@
 }
 
 .home {
+
+  h3 {
+    color: #DE2B16;
+    font-family: "BebasNeue", Arial, sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+    font-style: normal;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
     p {
       text-align: center;
@@ -27,18 +43,30 @@
         border: 1px solid #ccc;
         border-radius: .25em;
         display: inline-block;
+        font-family: "BebasNeue", Arial, sans-serif;
+        font-weight: 700;
+        font-size: 1.5em;
         padding: 1em .5em;
         margin-bottom: .5em;
         width: 50%;
       }
 
       button[type="submit"] {
+        background-color: #DE2B16;
+        border: none;
         border-radius: .5em;
-        padding: .5em 5em;
+        color: #fff;
+        font-family: "BebasNeue", Arial, sans-serif;
+        font-weight: 700;
+        font-size: 2em;
+        font-style: normal;
+        padding: .4em 3em;
+        text-transform: uppercase;
       }
 
       button[type="submit"]:disabled {
-          background: #dddddd;
+        background-color: #57575a;
+        color: #333;
       }
     }
 }
