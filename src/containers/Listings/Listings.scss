@@ -75,8 +75,13 @@
   transform: translate(-50%, -50%);
 }
 
+@font-face {
+  font-family: "bebas_neuebold";
+  src: url('../../../static/fonts/bebasneue_regular-webfont.woff');
+}
+
 .header {
-  font-family: "bebas_neuebold", Arial, sans-serif;
+  font-family: "bebas_neuebold";
   font-weight: 700;
   font-style: normal;
   color: #fff;

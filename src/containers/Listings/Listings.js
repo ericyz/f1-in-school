@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import Helmet from 'react-helmet';
 import matchSorter from 'match-sorter'
+import { getRacesProxy } from '../../api/racesApi';
 
 export default class Listings extends Component {
 
@@ -26,7 +27,7 @@ export default class Listings extends Component {
   render() {
     const styles = require('./Listings.scss');
 
-    const data =  require('./data.json');
+    const data =  require('./data.json'); //getRacesProxy();
   
     return (
       <div className={` ${styles.listings}`}>
@@ -126,7 +127,8 @@ export default class Listings extends Component {
                 console.log('It was in this column:', column)
                 console.log('It was in this row:', rowInfo)
                 console.log('It was in this table instance:', instance)
-                //goto()
+
+                goto(rowInfo.original.raceId)
         
                 // IMPORTANT! React-Table uses onClick internally to trigger
                 // events like expanding SubComponents and pivots.
@@ -151,6 +153,6 @@ export default class Listings extends Component {
 }
 
 
-function goto() {
-  location.assign("/Widget");  
+function goto(id) {
+  location.assign(`/event/${id}`);  
 }
