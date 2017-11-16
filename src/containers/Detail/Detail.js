@@ -5,6 +5,7 @@ import ResultList from './ResultList';
 import Header from '../../components/Header/Header';
 import { compose } from 'react-komposer';
 import { getRaceProxy } from './../../api/racesApi';
+import { sortBy, first } from 'underscore';
 
 const contentSectionStyle = {
     width: "100%",
@@ -30,17 +31,18 @@ const resultListStyle = {
 };
 
 
-const Detail = (props) => {
-    return (
-        <Flexbox element="div" flexDirection="column" height="100%" width="100%">
-            <Header text="Race Detail" />
-            <Flexbox element="div" style={contentSectionStyle}>
-                <Flexbox element="div" style={contentStyle} flexDirection="row">
-                    <Flexbox element="div" style={topListStyle}><TopList /></Flexbox>
-                    <Flexbox element="div" style={resultListStyle}><ResultList /></Flexbox>
-                </Flexbox>
+const Detail = ({ results }) => {
+    const bestFourResults = first(sortBy(results, s => s.netlapTime), 4);
+
+    return (<Flexbox element="div" flexDirection="column" height="100%" width="100%">
+        <Header text="Race Detail" />
+        <Flexbox element="div" style={contentSectionStyle}>
+            <Flexbox element="div" style={contentStyle} flexDirection="row">
+                <Flexbox element="div" style={topListStyle}><TopList results={bestFourResults} /></Flexbox>
+                <Flexbox element="div" style={resultListStyle} ><ResultList results={results} /></Flexbox>
             </Flexbox>
-        </Flexbox>);
+        </Flexbox>
+    </Flexbox>)
 };
 
 function detailPageLoader(props, onData) {
@@ -49,7 +51,7 @@ function detailPageLoader(props, onData) {
     getRaceProxy(eventId).then(results => {
         console.log(results);
         onData(null, {
-            event: results
+            results: results
         });
     });
 
