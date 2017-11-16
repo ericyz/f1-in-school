@@ -23,12 +23,7 @@ export default class Html extends Component {
     const { assets, component, store } = this.props;
     const content = component ? ReactDOM.renderToString(component) : '';
     const head = Helmet.rewind();
-<<<<<<< HEAD
-    const styles = require('./global.scss');
-
-=======
     const style = { height: "100%"};
->>>>>>> origin/develop
     return (
       <html lang="en-us">
         <head>
@@ -50,12 +45,8 @@ export default class Html extends Component {
           {/* outputs a <style/> tag with all bootstrap styles + App.scss + it could be CurrentPage.scss. */}
           {/* can smoothen the initial style flash (flicker) on page load in development mode. */}
           {/* ideally one could also include here the style for the current page (Home.scss, About.scss, etc) */}
-<<<<<<< HEAD
           { Object.keys(assets.styles).length === 0 ? <style dangerouslySetInnerHTML={{__html: require('../theme/bootstrap.config.js') + require('../containers/App/App.scss')._style}}/> : null }
 
-=======
-          {Object.keys(assets.styles).length === 0 ? <style dangerouslySetInnerHTML={{ __html: require('../theme/bootstrap.config.js') + require('../containers/App/App.scss')._style }} /> : null}
->>>>>>> origin/develop
         </head>
         <body>
           <div id="content" dangerouslySetInnerHTML={{ __html: content }} style={style}/>

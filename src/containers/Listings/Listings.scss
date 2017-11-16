@@ -58,3 +58,20 @@
   text-align: center;
   margin: 20px;
 }
+
+.bg-wht {
+  background-color: #FFFFFF;
+}
+
+.listings {
+
+  margin: 40px;
+}
+
+.resultsContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+}

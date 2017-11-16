@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table';
 import Helmet from 'react-helmet';
-import { FormGroup, ControlLabel, FormControl, HelpBlock } from 'react-bootstrap';
+import matchSorter from 'match-sorter'
 
 export default class Home extends Component {
 
@@ -26,43 +26,17 @@ export default class Home extends Component {
   render() {
     const styles = require('./Listings.scss');
 
-    const data = [{
-      name: 'Tanner Linsley',
-      age: 26,
-      friend: {
-        name: 'Jason Maurer',
-        age: 23,
-      }
-    }]
-  
-    const columns = [{
-      Header: 'Name',
-      accessor: 'name' // String-based value accessors!
-    }, {
-      Header: 'Age',
-      accessor: 'age',
-      Cell: props => <span className={styles.number}>{props.value}</span> // Custom cell components!
-    }, {
-      id: 'friendName', // Required because our accessor is not a string
-      Header: 'Friend Name',
-      accessor: d => d.friend.name // Custom value accessors!
-    }, {
-      Header: props => <span>Friend Age</span>, // Custom header components!
-      accessor: 'friend.age'
-    }]
+    const data =  require('./data.json');
   
     return (
-      <div>
+      <div className={` ${styles.listings}`}>
       <Helmet title="Listings">
         <link rel="stylesheet" href="https://unpkg.com/react-table@latest/react-table.css" />    
       </Helmet>
       <div>
 
-      <h2>Search</h2>
-      <form>
-      <input type="text" placeholder="Filter by Team Name"/>
-    </form>
 
+<div className={`${styles['bg-wht']} ${styles.resultsContainer}`} >
     <h2>Results</h2>
     
       <ReactTable
@@ -71,35 +45,19 @@ export default class Home extends Component {
         defaultFilterMethod={(filter, row) =>
           String(row[filter.id]) === filter.value}
         columns={[
-          {
-              
+          {     
                 Header: "Country",
-                accessor: "firstName",
-                filterMethod: (filter, row) =>
-                  row[filter.id].startsWith(filter.value) &&
-                  row[filter.id].endsWith(filter.value),
+                accessor: 'country',
                 show: false
               },
               {
-                Header: "State",
-                id: "lastName",
-                accessor: d => d.lastName,
-                Cell: ({ value }) => (value >= 21 ? "Yes" : "No"),
-                filterMethod: (filter, row) => {
-                  if (filter.value === "all") {
-                    return true;
-                  }
-                  if (filter.value === "true") {
-                    return row[filter.id] >= 21;
-                  }
-                  return row[filter.id] < 21;
-                },
-                filterAll: true,
+                Header: 'State',
+                accessor: 'state',
                 Filter: ({ filter, onChange }) =>
                 <select
                   onChange={event => onChange(event.target.value)}
                   style={{ width: "100%" }}
-                  value={filter ? filter.value : "all"}
+                  value={filter ? filter.value : "any"}
                 >
                   <option value="any">Any</option>
                   <option value="VIC">VIC</option>
@@ -113,31 +71,53 @@ export default class Home extends Component {
               },
 
               {
-                Header: "City",
-                accessor: "age",
-                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by City"/>                
+                Header: 'City',
+                accessor: 'city',
+                filterMethod: (filter, rows) => {
+                  return matchSorter(rows, filter.value, { keys: ["city"] })
+                },
+                filterAll: true,                
+                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by City" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)} />                
               },
               {
-                Header: "Venue",
+                Header: 'Venue',
                 accessor: "venue",
-                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name"/>                
-                
+                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Venue" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,             
+                filterMethod: (filter, rows) => {
+                  return matchSorter(rows, filter.value, { keys: ["venue"] })
+                },
+                filterAll: true       
               },
               {
-                Header: "Date",
+                Header: 'Date',
                 accessor: "date",
-                Filter: ({ filter, onChange }) => <input id="date" type="date" />
+                Filter: ({ filter, onChange }) => <input id="date" type="date" />,    
               },
               {
-                Header: "Team",
-                accessor: "team",
-                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name"/>                
-                
+                Header: 'Team 1',
+                accessor: d => d.team1.team,
+                id: 'team1',
+                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
+                filterMethod: (filter, rows) => {
+                  var bool = matchSorter(rows, filter.value, { keys: ["team1"] })
+                  return bool
+                },
+                filterAll: true                                     
+              },
+              {
+                Header: 'Team 2',
+                accessor: d => d.team2.team,
+                id: 'team2',                
+                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
+                filterMethod: (filter, rows) => {
+                  return matchSorter(rows, filter.value, { keys: ["team2"] })
+                },
+                filterAll: true              
               }
  
         ]}
         defaultPageSize={10}
-        className="-striped -highlight"
+        className={`-striped -highlight`}
         getTdProps={(state, rowInfo, column, instance) => {
             return {
               onClick: (e, handleOriginal) => {
@@ -164,7 +144,8 @@ export default class Home extends Component {
       <br />
     </div>
       </div>
-
+      </div>
+      
     );
   }
 }

@@ -1,14 +1,11 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-=======
 import React, { Component, PropTypes } from 'react';
 import Menu from './../Menu/Menu';
->>>>>>> origin/develop
 import { IndexLink } from 'react-router';
 import Flexbox from 'flexbox-react';
 import 'semantic-ui-css/semantic.min.css';
 import './App.scss';
+import Helmet from 'react-helmet';
+
 // import { slide as Menu } from 'react-burger-menu';
 // import { connect } from 'react-redux';
 // import { IndexLink } from 'react-router';
@@ -19,7 +16,7 @@ import './App.scss';
 // import Helmet from 'react-helmet';
 // import { InfoBar } from 'components';
 // import { push } from 'react-router-redux';
-// import config from '../../config';
+import config from '../../config';
 // import { asyncConnect } from 'redux-async-connect';
 
 // @asyncConnect([{
@@ -82,16 +79,14 @@ const contentStyle = {
 };
 
 export default class App extends Component {
-  // static propTypes = {
-  //   children: PropTypes.object.isRequired,
-  //   user: PropTypes.object,
-  //   logout: PropTypes.func.isRequired,
-  //   pushState: PropTypes.func.isRequired
-  // };
 
-  // static contextTypes = {
-  //   store: PropTypes.object.isRequired
-  // };
+
+  static propTypes = {
+    children: PropTypes.object.isRequired,
+    // user: PropTypes.object,
+    // logout: PropTypes.func.isRequired,
+    // pushState: PropTypes.func.isRequired
+  };
 
   constructor() {
     super();
@@ -107,15 +102,35 @@ export default class App extends Component {
     const styles = require('./App.scss');
 
     return (
-      <div className={styles.content}>
-        <div className={styles.app}>
-          <Helmet {...config.app.head}/>
+              <div className={styles.content}>
 
-          <div className={styles.appContent}>
+      <div className={styles.app} >
+                <Helmet {...config.app.head}/>
+
+        <div id="outer-container" >
+          <Menu styles={menuStyles} isOpen={this.menuOpen}>
+            <IndexLink to="/" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }} >
+              <div className="menu-item" />
+              <span >Home</span>
+            </IndexLink>
+            <IndexLink to="/leaderboard" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
+              <div className="menu-item" />
+              <span >Leader Board</span>
+            </IndexLink>
+            <IndexLink to="/about" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
+              <div className="menu-item" />
+              <span >About</span>
+            </IndexLink>
+          </Menu>
+        </div>
+        <div style={contentStyle}>
+          <Flexbox element="div" flexDirection="column" height="100%" width="100%">
             {this.props.children}
-          </div>
+          </Flexbox>
         </div>
       </div>
+            </div>
+
     );
   }
 }
