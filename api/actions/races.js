@@ -1,19 +1,21 @@
 import Admin from 'firebase-admin';
+import * as moment from 'moment';
 
 async function races() {
     const db = Admin.firestore();
     const ret = [];
     const snapshot = await db.collection('races').get();
     for (let index = 0; index < snapshot.docs.length; index++) {
-        const doc = snapshot.docs[index];
-
-        var data = doc.data();
+        const doc = snapshot.docs.sort(s=>s.date.date).reverse()[index];
+        // MMM d
+        const data = doc.data();
+        var date =new Date(data.date);
         const race = {
             raceId: doc.id, 
-            city: data.city, 
-            country: data.country,
-            state: data.state, 
-            date: data.date, 
+            city: data.country, 
+            country: data.state,
+            state: data.city, 
+            date: moment(date, 'MMM dd, hh:mm'),
             venue: data.venue, 
             team1: data.team1, 
             team2: data.team2
@@ -27,6 +29,8 @@ async function races() {
     return ret;
 }
 
+
+
 async function getResult(name, raceId) {
     const db = Admin.firestore();
     const ret = [];
@@ -34,7 +38,7 @@ async function getResult(name, raceId) {
     const doc = snapshot.docs[0];
 
     if (!doc)
-        return null;
+        return {};
 
     const data = doc.data();
 
