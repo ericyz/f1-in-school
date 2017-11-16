@@ -128,6 +128,18 @@ export default class App extends Component {
             {this.props.children}
           </Flexbox>
         </div>
+
+        <div className={styles.footerSocialIcons}>
+          <a
+            href="https://twitter.com/f1inschoolshq"
+            target="_blank">Twitter</a>
+          <a
+            href="https://www.facebook.com/F1inSchoolsHQ/"
+            target="_blank">Facebook</a>
+          <a
+            href="https://www.youtube.com/user/F1inSchoolsUK"
+            target="_blank">YouTube</a>
+        </div>
       </div>
             </div>
 

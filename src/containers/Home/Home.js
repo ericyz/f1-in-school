@@ -18,7 +18,7 @@ export default class Home extends Component {
 
     if (searchInput.length > 0) {
       browserHistory.push({
-        pathname: '/listings',
+        pathname: '/leaderboard',
         search: `?keywords=${searchInput}`,
       });
     }
@@ -37,7 +37,7 @@ export default class Home extends Component {
       <div className={styles.home}>
         <Helmet title="Home"/>
 
-        <div className="container">
+        <div className={styles.container}>
 
           <div className={styles.formContainer}>
             <p>
@@ -45,8 +45,10 @@ export default class Home extends Component {
             </p>
 
             <form onSubmit={this.onFormSubmit.bind(this)}>
-              <input type="text" onChange={this.updateSearchInputValue.bind(this)} />
-              <button type="submit" disabled={this.state._searchInputValue.length < 3}>GO</button>
+              <input type="text" placeholder="Enter team name" onChange={this.updateSearchInputValue.bind(this)} />
+              <div>
+                <button type="submit" disabled={this.state._searchInputValue.length < 3}>Go</button>
+              </div>
             </form>     
           </div>         
 
