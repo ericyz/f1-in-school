@@ -8,8 +8,19 @@ export default class Listings extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {value: ''}
+    this.state = {
+      value: '',
+      data:[]
+    }
     this.getValidationState = this.getValidationState.bind(this)
+  }
+
+  componentDidMount() {
+    let self = this;
+    getRacesProxy().then(data=>{
+        console.log(data)
+        self.setState(prevState => Object.assign(prevState, {data: data}))
+      });
   }
 
   getValidationState() {
@@ -27,8 +38,6 @@ export default class Listings extends Component {
   render() {
     const styles = require('./Listings.scss');
 
-    const data =  require('./data.json'); //getRacesProxy();
-  
     return (
       <div className={` ${styles.listings}`}>
       <Helmet title="Listings">
@@ -39,9 +48,8 @@ export default class Listings extends Component {
 
 <div className={`${styles.resultsContainer} container`} >
     <h2 className={styles.header}>Races</h2>
-    
       <ReactTable
-        data={data}
+        data={this.state.data}
         filterable
         defaultFilterMethod={(filter, row) =>
           String(row[filter.id]) === filter.value}
@@ -93,10 +101,10 @@ export default class Listings extends Component {
                 Header: 'Date',
                 accessor: "date",
                 Filter: ({ filter, onChange }) => <input id="date" type="date" />,    
-              },
+             },
               {
                 Header: 'Team 1',
-                accessor: d => d.team1.team,
+                accessor: d => d.team1Result.team,
                 id: 'team1',
                 Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
                 filterMethod: (filter, rows) => {
@@ -107,7 +115,7 @@ export default class Listings extends Component {
               },
               {
                 Header: 'Team 2',
-                accessor: d => d.team2.team,
+                accessor: d => d.team1Result.team,
                 id: 'team2',                
                 Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
                 filterMethod: (filter, rows) => {

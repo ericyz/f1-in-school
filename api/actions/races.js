@@ -10,9 +10,9 @@ async function races() {
         var data = doc.data();
         const race = {
             raceId: doc.id, 
-            city: data.country, 
-            country: data.state,
-            state: data.city, 
+            city: data.city, 
+            country: data.country,
+            state: data.state, 
             date: data.date, 
             venue: data.venue, 
             team1: data.team1, 
