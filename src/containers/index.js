@@ -9,3 +9,5 @@ export Survey from './Survey/Survey';
 export NotFound from './NotFound/NotFound';
 export Pagination from './Pagination/Pagination';
 export Listings from './Listings/Listings';
+export Detail from './Detail/Detail';
+
