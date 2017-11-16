@@ -4,7 +4,8 @@ import TopList from './TopList';
 import ResultList from './ResultList';
 import Header from '../../components/Header/Header';
 import { compose } from 'react-komposer';
-import {getRace} from './../../../api'
+import { getRaceProxy } from './../../api/racesApi';
+
 const contentSectionStyle = {
     width: "100%",
     // height: "50px"
@@ -45,11 +46,12 @@ const Detail = (props) => {
 function detailPageLoader(props, onData) {
     const eventId = props.params.id;
 
-    getRace(eventId).then(results => {
-
-        const data = { results };
+    getRaceProxy(eventId).then(results => {
+        console.log(results);
+        onData(null, {
+            event: results
+        });
     });
 
-    onData(null, data)
 }
-export default compose(detailPageLoader)(Detail);;
+export default compose(detailPageLoader)(Detail);

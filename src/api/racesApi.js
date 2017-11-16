@@ -1,9 +1,11 @@
-async function getRace(eventId){
-    return await fetch('api/')
+async function getRaceProxy(eventId) {
+    const response = await fetch(`/api/race/${eventId}`);
+    return await response.json();
 }
 
-async function getRaces(){
+async function getRacesProxy() {
+    const response = await fetch('/api/races');
+    return await response.json();
+}
 
-};
-
-export {getRace, getRaces};
+export { getRaceProxy, getRacesProxy };
