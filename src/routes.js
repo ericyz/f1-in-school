@@ -25,9 +25,9 @@ export default () => {
       <IndexRoute component={Home} />
 
       { /* Routes */}
-      <Route path="leaderboard" component={Login} />
+      <Route path="leaderboard" component={Listings} />
       <Route path="event/:id" component={Detail} />
-      <Route path="races" component={Pagination} />
+      <Route path="races" component={Listings} />
       <Route path="about" component={About} />
       <Route path="listings" component={Listings}/>
       
