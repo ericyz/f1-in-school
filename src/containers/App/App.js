@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import Menu from './../Menu/Menu';
 import { IndexLink } from 'react-router';
+import 'semantic-ui-css/semantic.min.css';
+import './App.scss';
 // import { slide as Menu } from 'react-burger-menu';
 // import { connect } from 'react-redux';
 // import { IndexLink } from 'react-router';
@@ -69,6 +71,10 @@ const menuItemStyle = {
   fontSize: '1.15em'
 };
 
+const contentStyle = {
+  height: '100%'
+};
+
 export default class App extends Component {
 
 
@@ -110,7 +116,7 @@ export default class App extends Component {
             </IndexLink>
           </Menu>
         </div>
-        <div>
+        <div style={contentStyle}>
           {this.props.children}
         </div>
         <div className="well text-center">

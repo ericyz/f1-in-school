@@ -1,13 +1,14 @@
 import React from 'react';
-import {IndexRoute, Route} from 'react-router';
+import { IndexRoute, Route } from 'react-router';
 import {
-    App,
-    Home,
-    About,
-    Login,
-    NotFound,
-    Pagination,
-  } from 'containers';
+  App,
+  Home,
+  About,
+  Login,
+  NotFound,
+  Pagination,
+  Detail
+} from 'containers';
 
 export default () => {
   /**
@@ -15,15 +16,15 @@ export default () => {
    */
   return (
     <Route path="/" component={App}>
-      { /* Home (main) route */ }
-      <IndexRoute component={Home}/>
+      { /* Home (main) route */}
+      <IndexRoute component={Home} />
 
-      { /* Routes */ }
-      <Route path="about" component={About}/>
-      <Route path="leaderboard" component={Login}/>
-      <Route path="detail" component={Pagination}/>
-
-      { /* Catch all route */ }
+      { /* Routes */}
+      <Route path="leaderboard" component={Login} />
+      <Route path="event/:id" component={Detail} />
+      <Route path="races" component={Pagination} />
+      <Route path="about" component={About} />
+      { /* Catch all route */}
       <Route path="*" component={NotFound} status={404} />
     </Route>
   );
