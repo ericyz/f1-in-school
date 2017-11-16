@@ -8,17 +8,34 @@ html,body{
   padding: 0;
 }
 
-.footerSocialIcons {
-  border-top: #c3c1c1;
+.footerCSLogo {
+  padding-left: 15px;
+  max-height: 40px;
+}
+
+.carsalesContainer {
+  color: #c3c1c1;
+  display: inline-block;
+  float: right;
+  vertical-align: bottom;
+}
+
+.footerContainer {
+  padding: 1.5em 2em;
+  width: 100%;
   position: absolute;
   bottom: 0;
-  width: 100%;
   background-color: #57575a;
-  padding: 1.5em 1em;
-  text-align: center;
+  border-top: #c3c1c1;
+}
+
+.footerSocialIcons {
+  display: inline-block;
+  padding-top: 15px;
   a {
     color: #c3c1c1;
     padding: .5em;
+    text-decoration: underline;
   }
 }
 
