@@ -31,33 +31,54 @@ const resultListStyle = {
     width: "27%",
 };
 
-const Detail = ({ results }) => {
-    const bestFourResults = first(sortBy(results, s => s.netlapTime), 4);
+class Detail extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { results: this.props.results, eventId: this.props.eventId }
+    }
 
-    return (<Flexbox element="div" flexDirection="column" height="100%" width="100%">
-        <Header text="Race Detail" />
 
-        <Flexbox element="div" style={contentSectionStyle}>
-            <Flexbox element="div" style={contentStyle} flexDirection="row">
-                <Flexbox element="div" style={topListStyle}>
-                    <TopList results={[{netlapTime: 'Netlap Time'
-                    , reactionTime: 'Reaction Time'
-                    , grossLapTime: 'Gross Lap Time'
-                    , team: 'Team'},
-                    ... bestFourResults]} />
+    componentDidMount() {
+        const self = this;
+        setInterval(function () {
+            getRaceProxy(self.state.eventId).then(results => {
+                self.setState(prev => Object.assign(prev, { results: self.state.results }));
+            })
+        }, 5000);
+    }
+
+    render() {
+        const results = this.state.results;
+        const bestFourResults = first(sortBy(results, s => s.netlapTime), 4);
+
+        return (<Flexbox element="div" flexDirection="column" height="100%" width="100%">
+            <Header text="Race Detail" />
+
+            <Flexbox element="div" style={contentSectionStyle}>
+                <Flexbox element="div" style={contentStyle} flexDirection="row">
+                    <Flexbox element="div" style={topListStyle}>
+                        <TopList results={[{
+                            netlapTime: 'Netlap Time'
+                            , reactionTime: 'Reaction Time'
+                            , grossLapTime: 'Gross Lap Time'
+                            , team: 'Team'
+                        },
+                        ...bestFourResults]} />
+                    </Flexbox>
+                    <Flexbox element="div" style={resultListStyle} ><ResultList results={results} /></Flexbox>
                 </Flexbox>
-                <Flexbox element="div" style={resultListStyle} ><ResultList results={results} /></Flexbox>
             </Flexbox>
-        </Flexbox>
-    </Flexbox>)
-};
+        </Flexbox>)
+    }
+}
 
 function detailPageLoader(props, onData) {
     const eventId = props.params.id;
 
     getRaceProxy(eventId).then(results => {
         onData(null, {
-            results: results
+            results: results,
+            eventId: eventId
         });
     });
 
