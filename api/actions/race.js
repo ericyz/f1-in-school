@@ -9,9 +9,9 @@ async function race(request) {
         const doc = snapshot.docs[index];
         const record = {
             id: doc.id,
-            netlapTime: doc.data().combined_time,
-            reactionTime: doc.data().reaction_time,
-            grossLapTime: doc.data().race_time,
+            netlapTime: doc.data().combined_time +'s',
+            reactionTime: doc.data().reaction_time +'s',
+            grossLapTime: doc.data().race_time +'s',
             team: doc.data().team
         };
         ret.push(record);

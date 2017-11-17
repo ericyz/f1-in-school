@@ -9,7 +9,7 @@ const ResultList = (props) => (<div>
     <Table.Body>
       {props.results.map(result =>
         (<Table.Row textAlign='center'>
-          <Table.Cell>{result.netlapTime}s - {result.team}</Table.Cell>
+          <Table.Cell>{result.netlapTime} - {result.team}</Table.Cell>
         </Table.Row>))}
     </Table.Body>
   </Table>

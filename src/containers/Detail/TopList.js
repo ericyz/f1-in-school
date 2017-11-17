@@ -31,13 +31,13 @@ const TopList = (props) => (
           <Item.Content verticalAlign='middle' >
             <Flexbox flexDirection="row" alignContent="center">
               <Flexbox>
-                <span style={contentStyle}>{result.reactionTime}s</span>
+                <span style={contentStyle}>{result.reactionTime}</span>
               </Flexbox>
               <Flexbox>
-                <span style={contentStyle}>{result.grossLapTime}s</span>
+                <span style={contentStyle}>{result.grossLapTime}</span>
               </Flexbox>
               <Flexbox>
-                <span style={contentStyle}>{result.team}s</span>
+                <span style={contentStyle}>{result.team}</span>
               </Flexbox>
             </Flexbox>
           </Item.Content>
