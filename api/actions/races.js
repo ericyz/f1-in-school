@@ -7,10 +7,11 @@ async function races() {
     const snapshot = await db.collection('races').get();
     const temp  = snapshot.docs.map(s =>
         ({
-            id: s.id,
+            id: parseInt(s.id),
             race: s.data()
         }));
-    const docs = temp.sort(s => s.race.date).reverse();
+
+    const docs = temp.sort((a, b) => b.id - a.id);
     for (let index = 0; index < docs.length; index++) {
         const doc = docs[index];
         const data = doc.race;
