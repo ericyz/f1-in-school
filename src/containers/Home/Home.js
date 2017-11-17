@@ -14,14 +14,15 @@ export default class Home extends Component {
 
   onFormSubmit(event) {
     event.preventDefault();
-    const searchInput = this.state._searchInputValue;
+    // const searchInput = this.state._searchInputValue;
 
-    if (searchInput.length > 0) {
+    // if (searchInput.length > 0) {
       browserHistory.push({
-        pathname: '/leaderboard',
-        search: `?keywords=${searchInput}`,
+        pathname: '/leaderboard'
       });
-    }
+      // ,
+      // search: `?keywords=${searchInput}`
+    // }
   }
 
   updateSearchInputValue(event) {
@@ -40,11 +41,11 @@ export default class Home extends Component {
 
           <div className={styles.formContainer}>
 
-            <h3>Search by team name</h3>
+            <h3>ARE YOU READY TO RACE?</h3>
             <form onSubmit={this.onFormSubmit.bind(this)}>
-              <input type="text" placeholder="Enter team name" onChange={this.updateSearchInputValue.bind(this)} />
+              {/* <input type="text" placeholder="Enter team name" onChange={this.updateSearchInputValue.bind(this)} /> */}
               <div>
-                <button type="submit" disabled={this.state._searchInputValue.length < 3}>Go</button>
+                <button type="submit">VIEW LEADERBOARD</button>
               </div>
             </form>     
           </div>         

@@ -65,16 +65,6 @@ const menuStyles = {
   }
 };
 
-const menuItemStyle = {
-  display: 'block',
-  outline: 'none',
-  marginLeft: '10px',
-  fontWeight: '700',
-  fontFamily: '"Raleway", Arial, sans-serif',
-  color: '#b8b7ad',
-  fontSize: '1.15em'
-};
-
 const contentStyle = {
   height: '100%'
 };
@@ -108,17 +98,13 @@ export default class App extends Component {
           <Helmet {...config.app.head}/>
           <div id="outer-container" >
             <Menu styles={menuStyles} isOpen={this.menuOpen}>
-              <IndexLink to="/" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }} >
+              <IndexLink to="/" className="menu-item" style={styles.menuItemStyle} activeStyle={{ color: '#DE2B16' }} >
                 <div className="menu-item" />
                 <span >Home</span>
               </IndexLink>
-              <IndexLink to="/leaderboard" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
+              <IndexLink to="/leaderboard" className="menu-item" style={styles.menuItemStyle} activeStyle={{ color: '#DE2B16' }}>
                 <div className="menu-item" />
                 <span >Leader Board</span>
-              </IndexLink>
-              <IndexLink to="/about" className="menu-item" style={menuItemStyle} activeStyle={{ color: '#33e0ff' }}>
-                <div className="menu-item" />
-                <span >About</span>
               </IndexLink>
             </Menu>
           </div>
