@@ -18,7 +18,7 @@ export default class Listings extends Component {
   componentDidMount() {
     let self = this;
     getRacesProxy().then(data=>{
-        console.log(data)
+        console.log('GOT DATA', data)
         self.setState(prevState => Object.assign(prevState, {data: data}))
       });
   }
@@ -63,16 +63,16 @@ export default class Listings extends Component {
         defaultFilterMethod={(filter, row) =>
           String(row[filter.id]) === filter.value}
         columns={[
-          {     
-                Header: "Country",
-                accessor: 'country',
-                show: false
-              },
-              {
-                Header: 'State',
-                accessor: 'state',
-                Filter: ({ filter, onChange }) => <div></div>
-              },
+          // {     
+          //       Header: "Country",
+          //       accessor: 'country',
+          //       show: false
+          //     },
+          //     {
+          //       Header: 'State',
+          //       accessor: 'state',
+          //       Filter: ({ filter, onChange }) => <div></div>
+          //     },
 
               {
                 Header: 'City',
@@ -121,28 +121,28 @@ export default class Listings extends Component {
                   return bool
                 },
                 filterAll: true                                     
+              },
+              {
+                Header: 'Team 2',
+                accessor: d => typeof d.team2Result === 'null' ? '' : d.team2Result.team,
+                id: 'team2',                
+                Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
+                filterMethod: (filter, rows) => {
+                  return matchSorter(rows, filter.value, { keys: ["team2"] })
+                },
+                filterAll: true              
+              },
+              {
+                Header: 'T2 Time',
+                accessor: d => d.team2Result.raceTime,
+                id: 'team2RaceTime',
+                Filter: ({ filter, onChange }) => <div></div>,
+                filterMethod: (filter, rows) => {
+                  var bool = matchSorter(rows, filter.value, { keys: ["team2RaceTime"] })
+                  return bool
+                },
+                filterAll: true                                     
               }
-              // {
-              //   Header: 'Team 2',
-              //   accessor: d => typeof d.team2Result === 'null' ? '' : d.team2Result.team,
-              //   id: 'team2',                
-              //   Filter: ({ filter, onChange }) => <input type="text" placeholder="Filter by Team Name" value={filter ? filter.value : ''} onChange={event => onChange(event.target.value)}/>,
-              //   filterMethod: (filter, rows) => {
-              //     return matchSorter(rows, filter.value, { keys: ["team2"] })
-              //   },
-              //   filterAll: true              
-              // }
-              // {
-              //   Header: 'T1 Time',
-              //   accessor: d => d.team1Result.raceTime,
-              //   id: 'team1RaceTime',
-              //   Filter: ({ filter, onChange }) => <div></div>,
-              //   filterMethod: (filter, rows) => {
-              //     var bool = matchSorter(rows, filter.value, { keys: ["team1RaceTime"] })
-              //     return bool
-              //   },
-              //   filterAll: true                                     
-              // }
  
         ]}
         defaultSorted={[
