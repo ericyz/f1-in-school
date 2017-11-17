@@ -7,6 +7,7 @@ async function races() {
     const snapshot = await db.collection('races').get();
     const temp  = snapshot.docs.map(s =>
         ({
+            rawId: s.id,
             id: parseInt(s.id),
             race: s.data()
         }));
@@ -27,8 +28,8 @@ async function races() {
             team2: data.team2
         };
 
-        race.team1Result = await getResult(race.team1, doc.id);
-        race.team2Result = await getResult(race.team2, doc.id);
+        race.team1Result = await getResult(race.team1, doc.rawId);
+        race.team2Result = await getResult(race.team2, doc.rawId);
 
         ret.push(race);
     }
